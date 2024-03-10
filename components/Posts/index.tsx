@@ -12,9 +12,9 @@ export default function Posts() {
   const { isPending, error, data } = useQuery({
     queryKey: ["posts"],
     queryFn: () =>
-      fetch("https://jsonplaceholder.typicode.com/posts").then((res) =>
-        res.json()
-      ),
+      fetch(
+        "https://jsonplaceholder.typicode.com/posts?_start=1&_limit=10"
+      ).then((res) => res.json()),
   });
 
   if (isPending) {
