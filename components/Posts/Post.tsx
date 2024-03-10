@@ -1,6 +1,13 @@
 import { Text, View, StyleSheet } from "react-native";
 
-export default function Post({ item }) {
+interface PostProps {
+  item: {
+    title: string;
+    body: string;
+  };
+}
+
+export default function Post({ item }: PostProps) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{item.title}</Text>
@@ -14,6 +21,7 @@ const styles = StyleSheet.create({
     padding: 8,
     backgroundColor: "antiquewhite",
     borderRadius: 8,
+    marginBottom: 16,
   },
   title: {
     fontSize: 16,
