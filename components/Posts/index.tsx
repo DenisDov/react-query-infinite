@@ -2,8 +2,13 @@ import { FlashList } from "@shopify/flash-list";
 import { useQuery } from "@tanstack/react-query";
 import { Text, StyleSheet, ActivityIndicator, View } from "react-native";
 import Post from "./Post";
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 
 export default function Posts() {
+  const insets = useSafeAreaInsets();
   const { isPending, error, data } = useQuery({
     queryKey: ["posts"],
     queryFn: () =>
@@ -28,6 +33,7 @@ export default function Posts() {
       estimatedItemSize={200}
       contentContainerStyle={{
         padding: 16,
+        paddingTop: insets.top,
       }}
       ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
     />
