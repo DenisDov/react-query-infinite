@@ -28,7 +28,7 @@ export default function Posts() {
     useInfiniteQuery({
       queryKey: ["posts"],
       queryFn: fetchPosts,
-      initialPageParam: 0,
+      initialPageParam: 1,
       getNextPageParam: (lastPage, allPages) => {
         return lastPage.length ? allPages.length + 1 : undefined;
       },
